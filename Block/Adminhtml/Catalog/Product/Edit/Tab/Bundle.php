@@ -41,6 +41,7 @@ class Bundle extends \Magento\Backend\Block\Widget implements \Magento\Backend\B
     ) {
         $this->_coreRegistry = $registry;
         parent::__construct($context, $data);
+        echo "hello";exit;
     }
 
     /**
@@ -48,7 +49,7 @@ class Bundle extends \Magento\Backend\Block\Widget implements \Magento\Backend\B
      */
     public function getTabUrl()
     {
-        return $this->getUrl('adminhtml/bundle_product_edit/form', ['_current' => true]);
+        return $this->getUrl('adminhtml/configurablebundle_product_edit/form', ['_current' => true]);
     }
 
     /**

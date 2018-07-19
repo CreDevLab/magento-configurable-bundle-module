@@ -6,8 +6,8 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Credevlab\ConfigurableBundle\Api\ProductOptionTypeListInterface" type="Credevlab\ConfigurableBundle\Model\OptionTypeList" />
-    <preference for="Credevlab\ConfigurableBundle\Api\Data\OptionTypeInterface" type="Credevlab\ConfigurableBundle\Model\Source\Option\Type" />
+    <preference for="Credevlab\ConfigurableBundle\Api\ProductOptionTypeListInterface" type="Magento\Bundle\Model\OptionTypeList" />
+    <preference for="Credevlab\ConfigurableBundle\Api\Data\OptionTypeInterface" type="Magento\Bundle\Model\Source\Option\Type" />
     <preference for="Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface" type="Credevlab\ConfigurableBundle\Model\LinkManagement" />
     <preference for="Credevlab\ConfigurableBundle\Api\Data\LinkInterface" type="Credevlab\ConfigurableBundle\Model\Link" />
     <preference for="Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface" type="Credevlab\ConfigurableBundle\Model\OptionRepository" />
@@ -89,7 +89,7 @@
         <plugin name="configurable_bundle" type="Credevlab\ConfigurableBundle\Model\Plugin\Product" sortOrder="120" />
     </type>
     <type name="Magento\Sales\Model\Order\Item">
-        <plugin name="configurable_bundle" type="Magento\Bundle\Model\Sales\Order\Plugin\Item" sortOrder="120" />
+        <plugin name="configurable_bundle" type="Credevlab\ConfigurableBundle\Model\Sales\Order\Plugin\Item" sortOrder="120" />
     </type>
     <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
         <arguments>
@@ -172,7 +172,7 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\Bundle\Model\ResourceModel\Indexer\Price">
+    <type name="Credevlab\ConfigurableBundle\Model\ResourceModel\Indexer\Price">
         <arguments>
             <argument name="tableStrategy" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product\Indexer\TemporaryTableStrategy</argument>
             <argument name="connectionName" xsi:type="string">indexer</argument>
@@ -192,7 +192,7 @@
                     <item name="entityTableName" xsi:type="string">catalog_product_bundle_option</item>
                     <item name="identifierField" xsi:type="string">option_id</item>
                 </item>
-                <item name="Magento\Bundle\Model\Selection" xsi:type="array">
+                <item name="Credevlab\ConfigurableBundle\Model\Selection" xsi:type="array">
                     <item name="entityTableName" xsi:type="string">catalog_product_bundle_selection</item>
                     <item name="identifierField" xsi:type="string">selection_id</item>
                 </item>
@@ -203,7 +203,7 @@
         <arguments>
             <argument name="hydrators" xsi:type="array">
                 <item name="Credevlab\ConfigurableBundle\Api\Data\OptionInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
-                <item name="Magento\Bundle\Model\Selection" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Credevlab\ConfigurableBundle\Model\Selection" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
             </argument>
         </arguments>
     </type>

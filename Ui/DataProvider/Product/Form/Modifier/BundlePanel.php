@@ -620,7 +620,7 @@ class BundlePanel extends AbstractModifier
                             'config' => [
                                 'formElement' => Form\Element\Checkbox::NAME,
                                 'componentType' => Form\Field::NAME,
-                                'component' => 'Magento_Bundle/js/components/bundle-checkbox',
+                                'component' => 'Credevlab_ConfigurableBundle/js/components/bundle-checkbox',
                                 'parentContainer' => 'product_bundle_container',
                                 'parentSelections' => 'bundle_selections',
                                 'changer' => 'option_info.type',
@@ -671,7 +671,7 @@ class BundlePanel extends AbstractModifier
                     'arguments' => [
                         'data' => [
                             'config' => [
-                                'component' => 'Magento_Bundle/js/components/bundle-option-qty',
+                                'component' => 'Credevlab_ConfigurableBundle/js/components/bundle-option-qty',
                                 'formElement' => Form\Element\Input::NAME,
                                 'componentType' => Form\Field::NAME,
                                 'dataType' => Form\Element\DataType\Number::NAME,
@@ -698,7 +698,7 @@ class BundlePanel extends AbstractModifier
                                 'componentType' => Form\Field::NAME,
                                 'formElement' => Form\Element\Checkbox::NAME,
                                 'dataType' => Form\Element\DataType\Price::NAME,
-                                'component' => 'Magento_Bundle/js/components/bundle-user-defined-checkbox',
+                                'component' => 'Credevlab_ConfigurableBundle/js/components/bundle-user-defined-checkbox',
                                 'label' => __('User Defined'),
                                 'dataScope' => 'selection_can_change_qty',
                                 'value' => '1',

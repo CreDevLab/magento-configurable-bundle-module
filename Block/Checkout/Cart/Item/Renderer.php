@@ -3,9 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Bundle\Block\Checkout\Cart\Item;
+namespace Credevlab\ConfigurableBundle\Block\Checkout\Cart\Item;
 
-use Magento\Bundle\Helper\Catalog\Product\Configuration;
+use Credevlab\ConfigurableBundle\Helper\Catalog\Product\Configuration;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
 use Magento\Framework\View\Element\Message\InterpretationStrategyInterface;
 

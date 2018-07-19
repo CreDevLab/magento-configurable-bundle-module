@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Magento\Bundle\Block\Catalog\Product;
+namespace Credevlab\ConfigurableBundle\Block\Catalog\Product;
 
 /**
  * Bundle product price block
@@ -61,7 +61,7 @@ class Price extends \Magento\Catalog\Block\Product\Price
     public function displayBothPrices()
     {
         $product = $this->getProduct();
-        if ($product->getPriceType() == \Magento\Bundle\Model\Product\Price::PRICE_TYPE_DYNAMIC
+        if ($product->getPriceType() == \Credevlab\ConfigurableBundle\Model\Product\Price::PRICE_TYPE_DYNAMIC
             && $product->getPriceModel()->getIsPricesCalculatedByIndex() !== false
         ) {
             return false;
