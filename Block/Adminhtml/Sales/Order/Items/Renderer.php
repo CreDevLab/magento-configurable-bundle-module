@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Sales\Order\Items;
+namespace Credevlab\Composite\Block\Adminhtml\Sales\Order\Items;
 
 use Magento\Catalog\Model\Product\Type\AbstractType;
 use Magento\Framework\Serialize\Serializer\Json;

@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Composite\Fieldset\Options\Type;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Composite\Fieldset\Options\Type;
 
 /**
  * Bundle option checkbox type renderer

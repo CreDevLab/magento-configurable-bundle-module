@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
 use Magento\Catalog\Pricing\Price\RegularPrice;
 use Magento\Framework\Pricing\Amount\AmountInterface;

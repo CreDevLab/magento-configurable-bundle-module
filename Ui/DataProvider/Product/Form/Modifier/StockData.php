@@ -3,11 +3,11 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier;
+namespace Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier;
 
 use Magento\Catalog\Model\Locator\LocatorInterface;
 use Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\AbstractModifier;
-use Credevlab\ConfigurableBundle\Model\Product\Type;
+use Credevlab\Composite\Model\Product\Type;
 
 /**
  * Class StockData hides unnecessary fields in Advanced Inventory Modal

@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Adjustment;
+namespace Credevlab\Composite\Pricing\Adjustment;
 
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Pricing\Adjustment\CalculatorInterface;
@@ -59,7 +59,7 @@ interface BundleCalculatorInterface extends CalculatorInterface
      *
      * @param float $basePriceValue
      * @param Product $bundleProduct
-     * @param \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
+     * @param \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
      * @param null|bool|string|array $exclude code of adjustment that has to be excluded
      * @return \Magento\Framework\Pricing\Amount\AmountInterface
      */
@@ -68,20 +68,20 @@ interface BundleCalculatorInterface extends CalculatorInterface
     /**
      * Create selection price list for the retrieved options
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Option $option
+     * @param \Credevlab\Composite\Model\Option $option
      * @param Product $bundleProduct
      * @param bool $useRegularPrice
-     * @return \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[]
+     * @return \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[]
      */
     public function createSelectionPriceList($option, $bundleProduct, $useRegularPrice = false);
 
     /**
      * Find minimal or maximal price for existing options
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Option $option
-     * @param \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
+     * @param \Credevlab\Composite\Model\Option $option
+     * @param \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
      * @param bool $searchMin
-     * @return \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[]
+     * @return \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[]
      */
     public function processOptions($option, $selectionPriceList, $searchMin = true);
 

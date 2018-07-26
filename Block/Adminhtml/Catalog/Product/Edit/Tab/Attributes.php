@@ -6,7 +6,7 @@
 
 // @codingStandardsIgnoreFile
 
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab;
 
 /**
  * Bundle product attributes tab
@@ -29,7 +29,7 @@ class Attributes extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Attri
         if ($specialPrice) {
             $specialPrice->setRenderer(
                 $this->getLayout()->createBlock(
-                    \Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Special::class
+                    \Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Special::class
                 )->setDisableChild(
                     false
                 )
@@ -50,7 +50,7 @@ class Attributes extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Attri
         if ($sku) {
             $sku->setRenderer(
                 $this->getLayout()->createBlock(
-                    \Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Extend::class
+                    \Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Extend::class
                 )->setDisableChild(
                     false
                 )
@@ -61,7 +61,7 @@ class Attributes extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Attri
         if ($price) {
             $price->setRenderer(
                 $this->getLayout()->createBlock(
-                    \Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Extend::class,
+                    \Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Extend::class,
                     'adminhtml.catalog.product.bundle.edit.tab.attributes.price'
                 )->setDisableChild(
                     true
@@ -77,7 +77,7 @@ class Attributes extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Attri
                 require(['prototype'], function(){
                 function changeTaxClassId() {
                     if ($('price_type').value == '" .
-                \Credevlab\ConfigurableBundle\Model\Product\Price::PRICE_TYPE_DYNAMIC .
+                \Credevlab\Composite\Model\Product\Price::PRICE_TYPE_DYNAMIC .
                 "') {
                         $('tax_class_id').disabled = true;
                         $('tax_class_id').value = '0';
@@ -107,7 +107,7 @@ class Attributes extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Attri
         if ($weight) {
             $weight->setRenderer(
                 $this->getLayout()->createBlock(
-                    \Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Extend::class
+                    \Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes\Extend::class
                 )->setDisableChild(
                     true
                 )

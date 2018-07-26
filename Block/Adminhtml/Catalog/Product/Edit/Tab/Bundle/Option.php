@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle;
 
 use Magento\Framework\Data\Form\Element\AbstractElement;
 
@@ -36,7 +36,7 @@ class Option extends \Magento\Backend\Block\Widget
     protected $_coreRegistry = null;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Model\Source\Option\Type
+     * @var \Credevlab\Composite\Model\Source\Option\Type
      */
     protected $_optionTypes;
 
@@ -48,14 +48,14 @@ class Option extends \Magento\Backend\Block\Widget
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Config\Model\Config\Source\Yesno $yesno
-     * @param \Credevlab\ConfigurableBundle\Model\Source\Option\Type $optionTypes
+     * @param \Credevlab\Composite\Model\Source\Option\Type $optionTypes
      * @param \Magento\Framework\Registry $registry
      * @param array $data
      */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Config\Model\Config\Source\Yesno $yesno,
-        \Credevlab\ConfigurableBundle\Model\Source\Option\Type $optionTypes,
+        \Credevlab\Composite\Model\Source\Option\Type $optionTypes,
         \Magento\Framework\Registry $registry,
         array $data = []
     ) {
@@ -177,7 +177,7 @@ class Option extends \Magento\Backend\Block\Widget
 
         $this->addChild(
             'selection_template',
-            \Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option\Selection::class
+            \Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option\Selection::class
         );
 
         return parent::_prepareLayout();
@@ -215,7 +215,7 @@ class Option extends \Magento\Backend\Block\Widget
     public function getOptions()
     {
         if (!$this->_options) {
-            /** @var \Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection $optionCollection */
+            /** @var \Credevlab\Composite\Model\ResourceModel\Option\Collection $optionCollection */
             $optionCollection = $this->getProduct()->getTypeInstance()->getOptionsCollection($this->getProduct());
 
             $selectionCollection = $this->getProduct()->getTypeInstance()->getSelectionsCollection(

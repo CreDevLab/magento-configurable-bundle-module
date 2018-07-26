@@ -3,9 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Catalog\Product\View\Type;
+namespace Credevlab\Composite\Block\Catalog\Product\View\Type;
 
-use Credevlab\ConfigurableBundle\Model\Option;
+use Credevlab\Composite\Model\Option;
 use Magento\Catalog\Model\Product;
 
 /**
@@ -353,7 +353,7 @@ class Bundle extends \Magento\Catalog\Block\Product\View\AbstractView
      */
     private function getConfigData(Product $product, array $options)
     {
-        $isFixedPrice = $this->getProduct()->getPriceType() == \Credevlab\ConfigurableBundle\Model\Product\Price::PRICE_TYPE_FIXED;
+        $isFixedPrice = $this->getProduct()->getPriceType() == \Credevlab\Composite\Model\Product\Price::PRICE_TYPE_FIXED;
 
         $productAmount = $product
             ->getPriceInfo()

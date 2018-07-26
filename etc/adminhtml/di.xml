@@ -7,45 +7,45 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Catalog\Controller\Adminhtml\Product\Initialization\Helper">
-        <plugin name="ConfigurableBundle" type="Credevlab\ConfigurableBundle\Controller\Adminhtml\Product\Initialization\Helper\Plugin\Bundle" sortOrder="60" />
+        <plugin name="Composite" type="Credevlab\Composite\Controller\Adminhtml\Product\Initialization\Helper\Plugin\Bundle" sortOrder="60" />
     </type>
     <!--<type name="Magento\Sales\Block\Adminhtml\Order\Create\Sidebar\AbstractSidebar">-->
         <!--<plugin name="Bundle" type="Magento\Bundle\Block\Adminhtml\Order\Create\Sidebar" sortOrder="200"/>-->
     <!--</type>-->
-    <type name="Credevlab\ConfigurableBundle\Model\ResourceModel\Selection\Collection">
-        <plugin name="ConfigurableBundle" type="Magento\Bundle\Model\ResourceModel\Selection\Plugin\Collection" sortOrder="60" />
+    <type name="Credevlab\Composite\Model\ResourceModel\Selection\Collection">
+        <plugin name="Composite" type="Magento\Bundle\Model\ResourceModel\Selection\Plugin\Collection" sortOrder="60" />
     </type>
     <type name="Magento\Catalog\Model\Product\CopyConstructor\Composite">
         <arguments>
             <argument name="constructors" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="string">Credevlab\ConfigurableBundle\Model\Product\CopyConstructor\ConfigurableBundle</item>
+                <item name="composite" xsi:type="string">Credevlab\Composite\Model\Product\CopyConstructor\Composite</item>
             </argument>
         </arguments>
     </type>
     <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
         <arguments>
             <argument name="modifiers" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="array">
-                    <item name="class" xsi:type="string">Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier\Composite</item>
+                <item name="composite" xsi:type="array">
+                    <item name="class" xsi:type="string">Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier\Composite</item>
                     <item name="sortOrder" xsi:type="number">200</item>
                 </item>
-                <item name="bundle_stock_data" xsi:type="array">
-                    <item name="class" xsi:type="string">Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier\StockData</item>
+                <item name="composite_stock_data" xsi:type="array">
+                    <item name="class" xsi:type="string">Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier\StockData</item>
                     <item name="sortOrder" xsi:type="number">190</item>
                 </item>
             </argument>
         </arguments>
     </virtualType>
-    <type name="Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier\Composite">
+    <type name="Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier\Composite">
         <arguments>
             <argument name="modifiers" xsi:type="array">
-                <item name="configurableBundleSku" xsi:type="string">Magento\Bundle\Ui\DataProvider\Product\Form\Modifier\BundleSku</item>
-                <item name="configurableBundlePrice" xsi:type="string">Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier\BundlePrice</item>
-                <item name="configurableBundleWeight" xsi:type="string">Magento\Bundle\Ui\DataProvider\Product\Form\Modifier\BundleWeight</item>
-                <item name="configurableBundleQuantity" xsi:type="string">Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier\BundleQuantity</item>
-                <item name="bundleAdvancedPricing" xsi:type="string">Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier\BundleAdvancedPricing</item>
-                <item name="configurableBundlePanel" xsi:type="string">Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier\BundlePanel</item>
-                <item name="bundleCustomOptions" xsi:type="string">Magento\Bundle\Ui\DataProvider\Product\Form\Modifier\BundleCustomOptions</item>
+                <item name="compositeSku" xsi:type="string">Magento\Bundle\Ui\DataProvider\Product\Form\Modifier\BundleSku</item>
+                <item name="compositePrice" xsi:type="string">Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier\CompositePrice</item>
+                <item name="compositeWeight" xsi:type="string">Magento\Bundle\Ui\DataProvider\Product\Form\Modifier\BundleWeight</item>
+                <item name="compositeQuantity" xsi:type="string">Magento\Bundle\Ui\DataProvider\Product\Form\Modifier\BundleQuantity</item>
+                <item name="compositePricing" xsi:type="string">Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier\BundleAdvancedPricing</item>
+                <item name="compositePanel" xsi:type="string">Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier\CompositePanel</item>
+                <item name="compositeCustomOptions" xsi:type="string">Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier\CompositeCustomOptions</item>
             </argument>
         </arguments>
     </type>

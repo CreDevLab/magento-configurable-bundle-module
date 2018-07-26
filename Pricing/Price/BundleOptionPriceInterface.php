@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
 /**
  * Option price interface
@@ -20,7 +20,7 @@ interface BundleOptionPriceInterface
     public function getOptions();
 
     /**
-     * @param \Credevlab\ConfigurableBundle\Model\Selection $selection
+     * @param \Credevlab\Composite\Model\Selection $selection
      * @return \Magento\Framework\Pricing\Amount\AmountInterface
      */
     public function getOptionSelectionAmount($selection);

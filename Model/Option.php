@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model;
+namespace Credevlab\Composite\Model;
 
 /**
  * Bundle Option Model
@@ -15,7 +15,7 @@ namespace Credevlab\ConfigurableBundle\Model;
  * @since 100.0.2
  */
 class Option extends \Magento\Framework\Model\AbstractExtensibleModel implements
-    \Credevlab\ConfigurableBundle\Api\Data\OptionInterface
+    \Credevlab\Composite\Api\Data\OptionInterface
 {
     /**#@+
      * Constants
@@ -264,7 +264,7 @@ class Option extends \Magento\Framework\Model\AbstractExtensibleModel implements
     /**
      * Set product links
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterface[] $productLinks
+     * @param \Credevlab\Composite\Api\Data\LinkInterface[] $productLinks
      * @return $this
      */
     public function setProductLinks(array $productLinks = null)
@@ -275,7 +275,7 @@ class Option extends \Magento\Framework\Model\AbstractExtensibleModel implements
     /**
      * {@inheritdoc}
      *
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionExtensionInterface|null
+     * @return \Credevlab\Composite\Api\Data\OptionExtensionInterface|null
      */
     public function getExtensionAttributes()
     {
@@ -285,10 +285,10 @@ class Option extends \Magento\Framework\Model\AbstractExtensibleModel implements
     /**
      * {@inheritdoc}
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\OptionExtensionInterface $extensionAttributes
+     * @param \Credevlab\Composite\Api\Data\OptionExtensionInterface $extensionAttributes
      * @return $this
      */
-    public function setExtensionAttributes(\Credevlab\ConfigurableBundle\Api\Data\OptionExtensionInterface $extensionAttributes)
+    public function setExtensionAttributes(\Credevlab\Composite\Api\Data\OptionExtensionInterface $extensionAttributes)
     {
         return $this->_setExtensionAttributes($extensionAttributes);
     }

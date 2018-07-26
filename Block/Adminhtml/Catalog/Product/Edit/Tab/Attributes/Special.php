@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes;
 
 /**
  * Bundle Special Price Attribute Block

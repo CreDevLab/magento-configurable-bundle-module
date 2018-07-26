@@ -6,7 +6,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Model\Source\Option;
+namespace Credevlab\Composite\Model\Source\Option;
 
 use Magento\Framework\Api\AttributeValueFactory;
 use Magento\Framework\Api\ExtensionAttributesFactory;
@@ -17,7 +17,7 @@ use Magento\Framework\Api\ExtensionAttributesFactory;
  */
 class Type extends \Magento\Framework\Model\AbstractExtensibleModel implements
     \Magento\Framework\Option\ArrayInterface,
-    \Credevlab\ConfigurableBundle\Api\Data\OptionTypeInterface
+    \Credevlab\Composite\Api\Data\OptionTypeInterface
 {
     /**#@+
      * Constants
@@ -118,7 +118,7 @@ class Type extends \Magento\Framework\Model\AbstractExtensibleModel implements
     /**
      * {@inheritdoc}
      *
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionTypeExtensionInterface|null
+     * @return \Credevlab\Composite\Api\Data\OptionTypeExtensionInterface|null
      */
     public function getExtensionAttributes()
     {
@@ -128,10 +128,10 @@ class Type extends \Magento\Framework\Model\AbstractExtensibleModel implements
     /**
      * {@inheritdoc}
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\OptionTypeExtensionInterface $extensionAttributes
+     * @param \Credevlab\Composite\Api\Data\OptionTypeExtensionInterface $extensionAttributes
      * @return $this
      */
-    public function setExtensionAttributes(\Credevlab\ConfigurableBundle\Api\Data\OptionTypeExtensionInterface $extensionAttributes)
+    public function setExtensionAttributes(\Credevlab\Composite\Api\Data\OptionTypeExtensionInterface $extensionAttributes)
     {
         return $this->_setExtensionAttributes($extensionAttributes);
     }

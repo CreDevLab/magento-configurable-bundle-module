@@ -4,12 +4,12 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Pricing\Adjustment\CalculatorInterface;
 use Magento\Catalog\Pricing\Price\CustomOptionPrice;
-use Credevlab\ConfigurableBundle\Model\Product\Price;
+use Credevlab\Composite\Model\Product\Price;
 use Magento\Framework\App\ObjectManager;
 use Magento\Catalog\Api\ProductCustomOptionRepositoryInterface;
 
@@ -34,7 +34,7 @@ class FinalPrice extends \Magento\Catalog\Pricing\Price\FinalPrice implements Fi
     protected $priceWithoutOption;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Pricing\Price\BundleOptionPrice
+     * @var \Credevlab\Composite\Pricing\Price\BundleOptionPrice
      */
     protected $bundleOptionPrice;
 
@@ -167,7 +167,7 @@ class FinalPrice extends \Magento\Catalog\Pricing\Price\FinalPrice implements Fi
     /**
      * Returns option price
      *
-     * @return \Credevlab\ConfigurableBundle\Pricing\Price\BundleOptionPrice
+     * @return \Credevlab\Composite\Pricing\Price\BundleOptionPrice
      */
     protected function getBundleOptionPrice()
     {

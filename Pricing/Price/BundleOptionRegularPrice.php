@@ -5,9 +5,9 @@
  */
 declare(strict_types=1);
 
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
-use Credevlab\ConfigurableBundle\Pricing\Adjustment\BundleCalculatorInterface;
+use Credevlab\Composite\Pricing\Adjustment\BundleCalculatorInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Pricing\Price\AbstractPrice;
 
@@ -27,7 +27,7 @@ class BundleOptionRegularPrice extends AbstractPrice implements BundleOptionPric
     protected $calculator;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Pricing\Price\BundleOptions
+     * @var \Credevlab\Composite\Pricing\Price\BundleOptions
      */
     private $bundleOptions;
 
@@ -64,7 +64,7 @@ class BundleOptionRegularPrice extends AbstractPrice implements BundleOptionPric
     /**
      * Get Options with attached Selections collection
      *
-     * @return \Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection
+     * @return \Credevlab\Composite\Model\ResourceModel\Option\Collection
      */
     public function getOptions()
     {
@@ -74,7 +74,7 @@ class BundleOptionRegularPrice extends AbstractPrice implements BundleOptionPric
     /**
      * Get selection amount
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Selection $selection
+     * @param \Credevlab\Composite\Model\Selection $selection
      * @return \Magento\Framework\Pricing\Amount\AmountInterface
      */
     public function getOptionSelectionAmount($selection)

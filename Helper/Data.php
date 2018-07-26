@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Helper;
+namespace Credevlab\Composite\Helper;
 
 /**
  * Configurable Bundle helper
@@ -36,7 +36,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getAllowedSelectionTypes()
     {
-        $configData = $this->config->getType(\Credevlab\ConfigurableBundle\Model\Product\Type::TYPE_CODE);
+        $configData = $this->config->getType(\Credevlab\Composite\Model\Product\Type::TYPE_CODE);
 
         return isset($configData['allowed_selection_types']) ? $configData['allowed_selection_types'] : [];
     }

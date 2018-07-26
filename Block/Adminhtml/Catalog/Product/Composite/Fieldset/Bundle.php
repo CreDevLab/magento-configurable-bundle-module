@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Composite\Fieldset;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Composite\Fieldset;
 
 /**
  * Adminhtml block for fieldset of bundle product
@@ -11,7 +11,7 @@ namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Composite
  * @api
  * @since 100.0.2
  */
-class Bundle extends \Credevlab\ConfigurableBundle\Block\Catalog\Product\View\Type\Bundle
+class Bundle extends \Credevlab\Composite\Block\Catalog\Product\View\Type\Bundle
 {
     /**
      * Returns string with json config for bundle product

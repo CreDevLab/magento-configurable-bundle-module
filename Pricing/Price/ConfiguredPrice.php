@@ -4,9 +4,9 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
-use Credevlab\ConfigurableBundle\Pricing\Adjustment\BundleCalculatorInterface;
+use Credevlab\Composite\Pricing\Adjustment\BundleCalculatorInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\Product\Configuration\Item\ItemInterface;
 use Magento\Catalog\Pricing\Price as CatalogPrice;
@@ -85,13 +85,13 @@ class ConfiguredPrice extends CatalogPrice\FinalPrice implements ConfiguredPrice
     /**
      * Get Options with attached Selections collection
      *
-     * @return array|\Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection
+     * @return array|\Credevlab\Composite\Model\ResourceModel\Option\Collection
      */
     public function getOptions()
     {
         $bundleProduct = $this->product;
         $bundleOptions = [];
-        /** @var \Credevlab\ConfigurableBundle\Model\Product\Type $typeInstance */
+        /** @var \Credevlab\Composite\Model\Product\Type $typeInstance */
         $typeInstance = $bundleProduct->getTypeInstance();
         $bundleOptionsIds = [];
         if ($this->item) {
@@ -102,7 +102,7 @@ class ConfiguredPrice extends CatalogPrice\FinalPrice implements ConfiguredPrice
             }
         }
         if ($bundleOptionsIds) {
-            /** @var \Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection $optionsCollection */
+            /** @var \Credevlab\Composite\Model\ResourceModel\Option\Collection $optionsCollection */
             $optionsCollection = $typeInstance->getOptionsByIds($bundleOptionsIds, $bundleProduct);
             // get and add bundle selections collection
             $selectionsQuoteItemOption = $this->item->getOptionByCode('bundle_selection_ids');

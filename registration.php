@@ -6,6 +6,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Credevlab_ConfigurableBundle',
+    'Credevlab_Composite',
     __DIR__
 );

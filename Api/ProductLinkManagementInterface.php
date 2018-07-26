@@ -4,7 +4,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Api;
+namespace Credevlab\Composite\Api;
 
 /**
  * Interface for Management of ProductLink
@@ -18,7 +18,7 @@ interface ProductLinkManagementInterface
      *
      * @param string $productSku
      * @param int $optionId
-     * @return \Credevlab\ConfigurableBundle\Api\Data\LinkInterface[]
+     * @return \Credevlab\Composite\Api\Data\LinkInterface[]
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\InputException
      */
@@ -29,17 +29,17 @@ interface ProductLinkManagementInterface
      *
      * @param string $sku
      * @param int $optionId
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct
+     * @param \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\CouldNotSaveException
      * @throws \Magento\Framework\Exception\InputException
      * @return int
      */
-    public function addChildByProductSku($sku, $optionId, \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct);
+    public function addChildByProductSku($sku, $optionId, \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct);
 
     /**
      * @param string $sku
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct
+     * @param \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\CouldNotSaveException
      * @throws \Magento\Framework\Exception\InputException
@@ -47,13 +47,13 @@ interface ProductLinkManagementInterface
      */
     public function saveChild(
         $sku,
-        \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct
+        \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct
     );
 
     /**
      * @param \Magento\Catalog\Api\Data\ProductInterface $product
      * @param int $optionId
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct
+     * @param \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\CouldNotSaveException
      * @throws \Magento\Framework\Exception\InputException
@@ -62,7 +62,7 @@ interface ProductLinkManagementInterface
     public function addChild(
         \Magento\Catalog\Api\Data\ProductInterface $product,
         $optionId,
-        \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct
+        \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct
     );
 
     /**

@@ -4,13 +4,13 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
-use Credevlab\ConfigurableBundle\Pricing\Adjustment\BundleCalculatorInterface;
+use Credevlab\Composite\Pricing\Adjustment\BundleCalculatorInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Pricing\Amount\AmountInterface;
 use Magento\Catalog\Pricing\Price\CustomOptionPrice;
-use Credevlab\ConfigurableBundle\Model\Product\Price;
+use Credevlab\Composite\Model\Product\Price;
 
 /**
  * Bundle product regular price model

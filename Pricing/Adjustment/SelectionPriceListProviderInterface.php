@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Adjustment;
+namespace Credevlab\Composite\Pricing\Adjustment;
 
 use Magento\Catalog\Model\Product;
 
@@ -19,7 +19,7 @@ interface SelectionPriceListProviderInterface
      * @param Product $bundleProduct
      * @param boolean $searchMin
      * @param boolean $useRegularPrice
-     * @return \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[]
+     * @return \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[]
      * @since 100.2.0
      */
     public function getPriceList(Product $bundleProduct, $searchMin, $useRegularPrice);

@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model\Product;
+namespace Credevlab\Composite\Model\Product;
 
 use Magento\Customer\Api\GroupManagementInterface;
 use Magento\Framework\Pricing\PriceCurrencyInterface;
@@ -253,7 +253,7 @@ class Price extends \Magento\Catalog\Model\Product\Type\Price
 
             if ($options) {
                 foreach ($options as $option) {
-                    /* @var $option \Credevlab\ConfigurableBundle\Model\Option */
+                    /* @var $option \Credevlab\Composite\Model\Option */
                     $selections = $option->getSelections();
                     if ($selections) {
                         $selectionMinimalPrices = [];

@@ -4,7 +4,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model;
+namespace Credevlab\Composite\Model;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
@@ -12,12 +12,12 @@ use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\InputException;
 use Magento\Framework\EntityManager\MetadataPool;
-use Credevlab\ConfigurableBundle\Model\Product\Type;
+use Credevlab\Composite\Model\Product\Type;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface
+class LinkManagement implements \Credevlab\Composite\Api\ProductLinkManagementInterface
 {
     /**
      * @var \Magento\Catalog\Api\ProductRepositoryInterface
@@ -25,7 +25,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
     protected $productRepository;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Api\Data\LinkInterfaceFactory
+     * @var \Credevlab\Composite\Api\Data\LinkInterfaceFactory
      */
     protected $linkFactory;
 
@@ -56,7 +56,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
 
     /**
      * @param ProductRepositoryInterface $productRepository
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterfaceFactory $linkFactory
+     * @param \Credevlab\Composite\Api\Data\LinkInterfaceFactory $linkFactory
      * @param \Magento\Bundle\Model\SelectionFactory $bundleSelection
      * @param \Magento\Bundle\Model\ResourceModel\BundleFactory $bundleFactory
      * @param \Magento\Bundle\Model\ResourceModel\Option\CollectionFactory $optionCollection
@@ -65,7 +65,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
      */
     public function __construct(
         ProductRepositoryInterface $productRepository,
-        \Credevlab\ConfigurableBundle\Api\Data\LinkInterfaceFactory $linkFactory,
+        \Credevlab\Composite\Api\Data\LinkInterfaceFactory $linkFactory,
         \Magento\Bundle\Model\SelectionFactory $bundleSelection,
         \Magento\Bundle\Model\ResourceModel\BundleFactory $bundleFactory,
         \Magento\Bundle\Model\ResourceModel\Option\CollectionFactory $optionCollection,
@@ -88,7 +88,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
     {
         $product = $this->productRepository->get($productSku, true);
         if ($product->getTypeId() != Type::TYPE_CODE) {
-            throw new InputException(__('Only implemented for configurable bundle product'));
+            throw new InputException(__('Only implemented for composite product'));
         }
 
         $childrenList = [];
@@ -107,7 +107,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
     /**
      * {@inheritdoc}
      */
-    public function addChildByProductSku($sku, $optionId, \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct)
+    public function addChildByProductSku($sku, $optionId, \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct)
     {
         /** @var \Magento\Catalog\Model\Product $product */
         $product = $this->productRepository->get($sku, true);
@@ -121,7 +121,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
      */
     public function saveChild(
         $sku,
-        \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct
+        \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct
     ) {
         $product = $this->productRepository->get($sku, true);
         if ($product->getTypeId() != Type::TYPE_CODE) {
@@ -165,7 +165,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
 
     /**
      * @param \Magento\Bundle\Model\Selection $selectionModel
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $productLink
+     * @param \Credevlab\Composite\Api\Data\LinkInterface $productLink
      * @param string $linkedProductId
      * @param string $parentProductId
      * @return \Magento\Bundle\Model\Selection
@@ -174,7 +174,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
      */
     protected function mapProductLinkToSelectionModel(
         \Magento\Bundle\Model\Selection $selectionModel,
-        \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $productLink,
+        \Credevlab\Composite\Api\Data\LinkInterface $productLink,
         $linkedProductId,
         $parentProductId
     ) {
@@ -215,7 +215,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
     public function addChild(
         \Magento\Catalog\Api\Data\ProductInterface $product,
         $optionId,
-        \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct
+        \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct
     ) {
         if ($product->getTypeId() != Type::TYPE_CODE) {
             throw new InputException(
@@ -330,7 +330,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
     /**
      * @param \Magento\Catalog\Model\Product $selection
      * @param \Magento\Catalog\Model\Product $product
-     * @return \Credevlab\ConfigurableBundle\Api\Data\LinkInterface
+     * @return \Credevlab\Composite\Api\Data\LinkInterface
      */
     private function buildLink(\Magento\Catalog\Model\Product $selection, \Magento\Catalog\Model\Product $product)
     {
@@ -342,12 +342,12 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
             $selectionPrice = $selection->getSelectionPriceValue();
         }
 
-        /** @var \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $link */
+        /** @var \Credevlab\Composite\Api\Data\LinkInterface $link */
         $link = $this->linkFactory->create();
         $this->dataObjectHelper->populateWithArray(
             $link,
             $selection->getData(),
-            \Credevlab\ConfigurableBundle\Api\Data\LinkInterface::class
+            \Credevlab\Composite\Api\Data\LinkInterface::class
         );
         $link->setIsDefault($selection->getIsDefault())
             ->setId($selection->getSelectionId())
@@ -360,7 +360,7 @@ class LinkManagement implements \Credevlab\ConfigurableBundle\Api\ProductLinkMan
 
     /**
      * @param \Magento\Catalog\Api\Data\ProductInterface $product
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionInterface[]
+     * @return \Credevlab\Composite\Api\Data\OptionInterface[]
      */
     private function getOptions(\Magento\Catalog\Api\Data\ProductInterface $product)
     {

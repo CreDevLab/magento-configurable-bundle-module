@@ -8,13 +8,13 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="js">
-           <block class="Magento\Framework\View\Element\Template" name="js.bundle_stock_disabler" template="Credevlab_ConfigurableBundle::product/stock/disabler.phtml"/>
+           <block class="Magento\Framework\View\Element\Template" name="js.bundle_stock_disabler" template="Credevlab_Composite::product/stock/disabler.phtml"/>
         </referenceContainer>
 
-                <referenceBlock name="product_tabs">
+        <referenceBlock name="product_tabs">
             <action method="addTab">
-                <argument name="name" xsi:type="string">configurable_bundle</argument>
-                <argument name="block" xsi:type="string">Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle</argument>
+                <argument name="name" xsi:type="string">composite</argument>
+                <argument name="block" xsi:type="string">Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle</argument>
             </action>
         </referenceBlock>
     </body>

@@ -4,14 +4,14 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model;
+namespace Credevlab\Composite\Model;
 
 /**
  * Class Link
  * @codeCoverageIgnore
  */
 class Link extends \Magento\Framework\Model\AbstractExtensibleModel implements
-    \Credevlab\ConfigurableBundle\Api\Data\LinkInterface
+    \Credevlab\Composite\Api\Data\LinkInterface
 {
     /**#@+
      * Constants
@@ -198,7 +198,7 @@ class Link extends \Magento\Framework\Model\AbstractExtensibleModel implements
     /**
      * {@inheritdoc}
      *
-     * @return \Credevlab\ConfigurableBundle\Api\Data\LinkExtensionInterface|null
+     * @return \Credevlab\Composite\Api\Data\LinkExtensionInterface|null
      */
     public function getExtensionAttributes()
     {
@@ -208,10 +208,10 @@ class Link extends \Magento\Framework\Model\AbstractExtensibleModel implements
     /**
      * {@inheritdoc}
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkExtensionInterface $extensionAttributes
+     * @param \Credevlab\Composite\Api\Data\LinkExtensionInterface $extensionAttributes
      * @return $this
      */
-    public function setExtensionAttributes(\Credevlab\ConfigurableBundle\Api\Data\LinkExtensionInterface $extensionAttributes)
+    public function setExtensionAttributes(\Credevlab\Composite\Api\Data\LinkExtensionInterface $extensionAttributes)
     {
         return $this->_setExtensionAttributes($extensionAttributes);
     }

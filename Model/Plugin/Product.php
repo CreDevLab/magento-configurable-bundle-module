@@ -3,9 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model\Plugin;
+namespace Credevlab\Composite\Model\Plugin;
 
-use Credevlab\ConfigurableBundle\Model\Product\Type;
+use Credevlab\Composite\Model\Product\Type;
 use Magento\Catalog\Model\Product as CatalogProduct;
 
 class Product

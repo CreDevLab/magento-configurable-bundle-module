@@ -4,15 +4,15 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model;
+namespace Credevlab\Composite\Model;
 
 use Magento\Framework\Exception\InputException;
-use Credevlab\ConfigurableBundle\Model\Product\Type;
+use Credevlab\Composite\Model\Product\Type;
 
-class OptionManagement implements \Credevlab\ConfigurableBundle\Api\ProductOptionManagementInterface
+class OptionManagement implements \Credevlab\Composite\Api\ProductOptionManagementInterface
 {
     /**
-     * @var \Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface
+     * @var \Credevlab\Composite\Api\ProductOptionRepositoryInterface
      */
     protected $optionRepository;
 
@@ -22,11 +22,11 @@ class OptionManagement implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     protected $productRepository;
 
     /**
-     * @param \Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface $optionRepository
+     * @param \Credevlab\Composite\Api\ProductOptionRepositoryInterface $optionRepository
      * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
      */
     public function __construct(
-        \Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface $optionRepository,
+        \Credevlab\Composite\Api\ProductOptionRepositoryInterface $optionRepository,
         \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
     ) {
         $this->optionRepository = $optionRepository;
@@ -36,7 +36,7 @@ class OptionManagement implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     /**
      * {@inheritdoc}
      */
-    public function save(\Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option)
+    public function save(\Credevlab\Composite\Api\Data\OptionInterface $option)
     {
         $product = $this->productRepository->get($option->getSku(), true);
         if ($product->getTypeId() != Type::TYPE_CODE) {

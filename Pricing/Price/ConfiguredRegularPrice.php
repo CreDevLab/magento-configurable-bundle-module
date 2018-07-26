@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
 /**
  * Configured regular price model
@@ -20,10 +20,10 @@ class ConfiguredRegularPrice extends ConfiguredPrice
     /**
      * Create Selection Price List
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Option $option
+     * @param \Credevlab\Composite\Model\Option $option
      * @return BundleSelectionPrice[]
      */
-    protected function createSelectionPriceList(\Credevlab\ConfigurableBundle\Model\Option $option): array
+    protected function createSelectionPriceList(\Credevlab\Composite\Model\Option $option): array
     {
         return $this->calculator->createSelectionPriceList($option, $this->product, true);
     }

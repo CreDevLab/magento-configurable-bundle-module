@@ -3,10 +3,10 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model;
+namespace Credevlab\Composite\Model;
 
-use Credevlab\ConfigurableBundle\Api\Data\BundleOptionInterface;
-use Credevlab\ConfigurableBundle\Api\Data\BundleOptionInterfaceFactory;
+use Credevlab\Composite\Api\Data\BundleOptionInterface;
+use Credevlab\Composite\Api\Data\BundleOptionInterfaceFactory;
 use Magento\Catalog\Api\Data\ProductOptionInterface;
 use Magento\Catalog\Model\Product\Type as ProductType;
 use Magento\Catalog\Model\ProductOptionProcessorInterface;

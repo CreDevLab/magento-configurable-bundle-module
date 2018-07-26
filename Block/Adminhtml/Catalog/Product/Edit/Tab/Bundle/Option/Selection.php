@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option;
 
 /**
  * Bundle selection renderer
@@ -32,7 +32,7 @@ class Selection extends \Magento\Backend\Block\Widget
     protected $_coreRegistry = null;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Model\Source\Option\Selection\Price\Type
+     * @var \Credevlab\Composite\Model\Source\Option\Selection\Price\Type
      */
     protected $_priceType;
 
@@ -44,7 +44,7 @@ class Selection extends \Magento\Backend\Block\Widget
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Config\Model\Config\Source\Yesno $yesno
-     * @param \Credevlab\ConfigurableBundle\Model\Source\Option\Selection\Price\Type $priceType
+     * @param \Credevlab\Composite\Model\Source\Option\Selection\Price\Type $priceType
      * @param \Magento\Catalog\Helper\Data $catalogData
      * @param \Magento\Framework\Registry $registry
      * @param array $data

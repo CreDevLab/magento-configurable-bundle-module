@@ -1,6 +1,6 @@
 {
-    "name": "credevlab/module-configurable-bundle",
-    "description": "A new product type configurable bundle options",
+    "name": "credevlab/module-composite-product",
+    "description": "A new product type composite",
     "require": {
         "magento/module-store": "100.2.*",
         "magento/module-catalog": "102.0.*",
@@ -34,7 +34,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Credevlab\\ConfigurableBundle\\": ""
+            "Credevlab\\Composite\\": ""
         }
     }
 }

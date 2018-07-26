@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit;
 
 /**
  * Adminhtml product edit tabs
@@ -15,7 +15,7 @@ class Tabs extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Tabs
     /**
      * @var string
      */
-    protected $_attributeTabBlock = \Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes::class;
+    protected $_attributeTabBlock = \Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Attributes::class;
 
     /**
      * @return $this|void

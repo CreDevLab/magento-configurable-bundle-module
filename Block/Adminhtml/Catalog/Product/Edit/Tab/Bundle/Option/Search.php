@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option;
 
 /**
  * Bundle selection product block
@@ -35,7 +35,7 @@ class Search extends \Magento\Backend\Block\Widget
         $this->setChild(
             'grid',
             $this->getLayout()->createBlock(
-                \Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option\Search\Grid::class,
+                \Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option\Search\Grid::class,
                 'adminhtml.catalog.product.edit.tab.bundle.option.search.grid'
             )
         );

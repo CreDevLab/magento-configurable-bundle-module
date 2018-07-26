@@ -4,7 +4,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Api\Data;
+namespace Credevlab\Composite\Api\Data;
 
 /**
  * Interface OptionTypeInterface
@@ -46,15 +46,15 @@ interface OptionTypeInterface extends \Magento\Framework\Api\ExtensibleDataInter
     /**
      * Retrieve existing extension attributes object or create a new one.
      *
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionTypeExtensionInterface|null
+     * @return \Credevlab\Composite\Api\Data\OptionTypeExtensionInterface|null
      */
     public function getExtensionAttributes();
 
     /**
      * Set an extension attributes object.
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\OptionTypeExtensionInterface $extensionAttributes
+     * @param \Credevlab\Composite\Api\Data\OptionTypeExtensionInterface $extensionAttributes
      * @return $this
      */
-    public function setExtensionAttributes(\Credevlab\ConfigurableBundle\Api\Data\OptionTypeExtensionInterface $extensionAttributes);
+    public function setExtensionAttributes(\Credevlab\Composite\Api\Data\OptionTypeExtensionInterface $extensionAttributes);
 }

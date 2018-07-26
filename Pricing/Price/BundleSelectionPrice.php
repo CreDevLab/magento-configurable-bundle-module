@@ -3,9 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
-use Credevlab\ConfigurableBundle\Model\Product\Price;
+use Credevlab\Composite\Model\Product\Price;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Pricing\Price as CatalogPrice;
 use Magento\Framework\Event\ManagerInterface;
@@ -164,7 +164,7 @@ class BundleSelectionPrice extends AbstractPrice
         $value = $this->getValue();
         if (!isset($this->amount[$value])) {
             $exclude = null;
-            if ($this->getProduct()->getTypeId() == \Credevlab\ConfigurableBundle\Model\Product\Type::TYPE_CODE) {
+            if ($this->getProduct()->getTypeId() == \Credevlab\Composite\Model\Product\Type::TYPE_CODE) {
                 $exclude = $this->excludeAdjustment;
             }
             $this->amount[$value] = $this->calculator->getAmount(

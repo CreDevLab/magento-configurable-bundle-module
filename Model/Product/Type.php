@@ -6,7 +6,7 @@
 
 // @codingStandardsIgnoreFile
 
-namespace Credevlab\ConfigurableBundle\Model\Product;
+namespace Credevlab\Composite\Model\Product;
 
 use Magento\Framework\App\ObjectManager;
 use Magento\Catalog\Api\ProductRepositoryInterface;
@@ -29,7 +29,7 @@ class Type extends \Magento\Catalog\Model\Product\Type\AbstractType
     /**
      * Product type
      */
-    const TYPE_CODE = 'configurable_bundle';
+    const TYPE_CODE = 'composite';
 
     /**
      * Product is composite
@@ -207,7 +207,7 @@ class Type extends \Magento\Catalog\Model\Product\Type\AbstractType
         \Magento\Bundle\Model\ResourceModel\Selection\CollectionFactory $bundleCollection,
         \Magento\Catalog\Model\Config $config,
         \Magento\Bundle\Model\ResourceModel\Selection $bundleSelection,
-        \Credevlab\ConfigurableBundle\Model\OptionFactory $bundleOption,
+        \Credevlab\Composite\Model\OptionFactory $compositeOption,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         PriceCurrencyInterface $priceCurrency,
         \Magento\CatalogInventory\Api\StockRegistryInterface $stockRegistry,
@@ -219,7 +219,7 @@ class Type extends \Magento\Catalog\Model\Product\Type\AbstractType
         $this->_catalogProduct = $catalogProduct;
         $this->_catalogData = $catalogData;
         $this->_storeManager = $storeManager;
-        $this->_bundleOption = $bundleOption;
+        $this->_bundleOption = $compositeOption;
         $this->_bundleSelection = $bundleSelection;
         $this->_config = $config;
         $this->_bundleCollection = $bundleCollection;
@@ -1204,7 +1204,7 @@ class Type extends \Magento\Catalog\Model\Product\Type\AbstractType
     public function getIdentities(\Magento\Catalog\Model\Product $product)
     {
         $identities = parent::getIdentities($product);
-        /** @var \Credevlab\ConfigurableBundle\Model\Option $option */
+        /** @var \Credevlab\Composite\Model\Option $option */
         foreach ($this->getOptions($product) as $option) {
             if ($option->getSelections()) {
                 /** @var \Magento\Catalog\Model\Product $selection */

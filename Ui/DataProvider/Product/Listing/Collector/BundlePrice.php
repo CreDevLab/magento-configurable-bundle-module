@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Listing\Collector;
+namespace Credevlab\Composite\Ui\DataProvider\Product\Listing\Collector;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Api\Data\ProductRender\PriceInfoInterface;
@@ -68,7 +68,7 @@ class BundlePrice implements ProductRenderCollectorInterface
      */
     public function collect(ProductInterface $product, ProductRenderInterface $productRender)
     {
-        if ($product->getTypeId() == \Credevlab\ConfigurableBundle\Model\Product\Type::TYPE_CODE) {
+        if ($product->getTypeId() == \Credevlab\Composite\Model\Product\Type::TYPE_CODE) {
             $priceInfo = $productRender->getPriceInfo();
 
             if (!$productRender->getPriceInfo()) {

@@ -7,62 +7,62 @@
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/configurable-bundle-products/:sku/links/:optionId" method="POST">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface" method="addChildByProductSku"/>
+    <route url="/V1/composite-products/:sku/links/:optionId" method="POST">
+        <service class="Credevlab\Composite\Api\ProductLinkManagementInterface" method="addChildByProductSku"/>
         <resources>
             <resource ref="Magento_Catalog::products"/>
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/:sku/links/:id" method="PUT">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface" method="saveChild"/>
+    <route url="/V1/composite-products/:sku/links/:id" method="PUT">
+        <service class="Credevlab\Composite\Api\ProductLinkManagementInterface" method="saveChild"/>
         <resources>
             <resource ref="Magento_Catalog::products"/>
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/:productSku/children" method="GET">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface" method="getChildren"/>
+    <route url="/V1/composite-products/:productSku/children" method="GET">
+        <service class="Credevlab\Composite\Api\ProductLinkManagementInterface" method="getChildren"/>
         <resources>
             <resource ref="Magento_Catalog::products"/>
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/:sku/options/:optionId/children/:childSku" method="DELETE">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface" method="removeChild"/>
+    <route url="/V1/composite-products/:sku/options/:optionId/children/:childSku" method="DELETE">
+        <service class="Credevlab\Composite\Api\ProductLinkManagementInterface" method="removeChild"/>
         <resources>
             <resource ref="Magento_Catalog::products"/>
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/:sku/options/all" method="GET">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface" method="getList" />
+    <route url="/V1/composite-products/:sku/options/all" method="GET">
+        <service class="Credevlab\Composite\Api\ProductOptionRepositoryInterface" method="getList" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/options/types" method="GET">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductOptionTypeListInterface" method="getItems" />
+    <route url="/V1/composite-products/options/types" method="GET">
+        <service class="Credevlab\Composite\Api\ProductOptionTypeListInterface" method="getItems" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/:sku/options/:optionId" method="GET">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface" method="get" />
+    <route url="/V1/composite-products/:sku/options/:optionId" method="GET">
+        <service class="Credevlab\Composite\Api\ProductOptionRepositoryInterface" method="get" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/options/add" method="POST">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductOptionManagementInterface" method="save" />
+    <route url="/V1/composite-products/options/add" method="POST">
+        <service class="Credevlab\Composite\Api\ProductOptionManagementInterface" method="save" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/options/:optionId" method="PUT">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductOptionManagementInterface" method="save" />
+    <route url="/V1/composite-products/options/:optionId" method="PUT">
+        <service class="Credevlab\Composite\Api\ProductOptionManagementInterface" method="save" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>
     </route>
-    <route url="/V1/configurable-bundle-products/:sku/options/:optionId" method="DELETE">
-        <service class="Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface" method="deleteById" />
+    <route url="/V1/composite-products/:sku/options/:optionId" method="DELETE">
+        <service class="Credevlab\Composite\Api\ProductOptionRepositoryInterface" method="deleteById" />
         <resources>
             <resource ref="Magento_Catalog::products" />
         </resources>

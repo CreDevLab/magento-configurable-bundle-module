@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
 use Magento\Catalog\Model\Product;
 
@@ -18,7 +18,7 @@ class BundleSelectionFactory
     /**
      * Default selection class
      */
-    const SELECTION_CLASS_DEFAULT = \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice::class;
+    const SELECTION_CLASS_DEFAULT = \Credevlab\Composite\Pricing\Price\BundleSelectionPrice::class;
 
     /**
      * Object Manager

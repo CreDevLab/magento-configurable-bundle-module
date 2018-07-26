@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model\Option;
+namespace Credevlab\Composite\Model\Option;
 
 use Magento\Framework\Validator\NotEmpty;
 use Magento\Framework\Validator\NotEmptyFactory;
@@ -25,7 +25,7 @@ class Validator extends \Magento\Framework\Validator\AbstractValidator
     }
 
     /**
-     * @param \Credevlab\ConfigurableBundle\Model\Option $value
+     * @param \Credevlab\Composite\Model\Option $value
      * @return boolean
      * @throws Zend_Validate_Exception If validation of $value is impossible
      */
@@ -37,7 +37,7 @@ class Validator extends \Magento\Framework\Validator\AbstractValidator
     }
 
     /**
-     * @param \Credevlab\ConfigurableBundle\Model\Option $value
+     * @param \Credevlab\Composite\Model\Option $value
      * @return void
      * @throws Zend_Validate_Exception
      * @throws \Exception

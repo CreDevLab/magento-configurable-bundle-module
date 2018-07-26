@@ -4,7 +4,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model;
+namespace Credevlab\Composite\Model;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Framework\App\ObjectManager;
@@ -12,12 +12,12 @@ use Magento\Framework\EntityManager\MetadataPool;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\InputException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Credevlab\ConfigurableBundle\Model\Product\Type;
+use Credevlab\Composite\Model\Product\Type;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface
+class OptionRepository implements \Credevlab\Composite\Api\ProductOptionRepositoryInterface
 {
     /**
      * @var \Magento\Catalog\Api\ProductRepositoryInterface
@@ -30,7 +30,7 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     protected $type;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Api\Data\OptionInterfaceFactory
+     * @var \Credevlab\Composite\Api\Data\OptionInterfaceFactory
      */
     protected $optionFactory;
 
@@ -45,7 +45,7 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     protected $storeManager;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface
+     * @var \Credevlab\Composite\Api\ProductLinkManagementInterface
      */
     protected $linkManagement;
 
@@ -72,10 +72,10 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     /**
      * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
      * @param Product\Type $type
-     * @param \Credevlab\ConfigurableBundle\Api\Data\OptionInterfaceFactory $optionFactory
+     * @param \Credevlab\Composite\Api\Data\OptionInterfaceFactory $optionFactory
      * @param \Magento\Bundle\Model\ResourceModel\Option $optionResource
      * @param \Magento\Store\Model\StoreManagerInterface $storeManager
-     * @param \Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface $linkManagement
+     * @param \Credevlab\Composite\Api\ProductLinkManagementInterface $linkManagement
      * @param Product\OptionList $productOptionList
      * @param Product\LinksList $linkList
      * @param \Magento\Framework\Api\DataObjectHelper $dataObjectHelper
@@ -84,10 +84,10 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     public function __construct(
         \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
         Type $type,
-        \Credevlab\ConfigurableBundle\Api\Data\OptionInterfaceFactory $optionFactory,
+        \Credevlab\Composite\Api\Data\OptionInterfaceFactory $optionFactory,
         \Magento\Bundle\Model\ResourceModel\Option $optionResource,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface $linkManagement,
+        \Credevlab\Composite\Api\ProductLinkManagementInterface $linkManagement,
         \Magento\Bundle\Model\Product\OptionList $productOptionList,
         \Magento\Bundle\Model\Product\LinksList $linkList,
         \Magento\Framework\Api\DataObjectHelper $dataObjectHelper
@@ -118,12 +118,12 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
 
         $productLinks = $this->linkList->getItems($product, $optionId);
 
-        /** @var \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option */
+        /** @var \Credevlab\Composite\Api\Data\OptionInterface $option */
         $optionDataObject = $this->optionFactory->create();
         $this->dataObjectHelper->populateWithArray(
             $optionDataObject,
             $option->getData(),
-            \Credevlab\ConfigurableBundle\Api\Data\OptionInterface::class
+            \Credevlab\Composite\Api\Data\OptionInterface::class
         );
         $optionDataObject->setOptionId($option->getId())
             ->setTitle($option->getTitle() === null ? $option->getDefaultTitle() : $option->getTitle())
@@ -144,7 +144,7 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
 
     /**
      * @param ProductInterface $product
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionInterface[]
+     * @return \Credevlab\Composite\Api\Data\OptionInterface[]
      */
     public function getListByProduct(ProductInterface $product)
     {
@@ -154,7 +154,7 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     /**
      * {@inheritdoc}
      */
-    public function delete(\Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option)
+    public function delete(\Credevlab\Composite\Api\Data\OptionInterface $option)
     {
         try {
             $this->optionResource->delete($option);
@@ -183,7 +183,7 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
      */
     public function save(
         \Magento\Catalog\Api\Data\ProductInterface $product,
-        \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option
+        \Credevlab\Composite\Api\Data\OptionInterface $option
     ) {
         $metadata = $this->getMetadataPool()->getMetadata(\Magento\Catalog\Api\Data\ProductInterface::class);
 
@@ -222,7 +222,7 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
             throw new CouldNotSaveException(__('Could not save option'), $e);
         }
 
-        /** @var \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $linkedProduct */
+        /** @var \Credevlab\Composite\Api\Data\LinkInterface $linkedProduct */
         foreach ($linksToAdd as $linkedProduct) {
             $this->linkManagement->addChild($product, $option->getOptionId(), $linkedProduct);
         }
@@ -234,12 +234,12 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
      * Update option selections
      *
      * @param \Magento\Catalog\Api\Data\ProductInterface $product
-     * @param \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option
+     * @param \Credevlab\Composite\Api\Data\OptionInterface $option
      * @return $this
      */
     protected function updateOptionSelection(
         \Magento\Catalog\Api\Data\ProductInterface $product,
-        \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option
+        \Credevlab\Composite\Api\Data\OptionInterface $option
     ) {
         $optionId = $option->getOptionId();
         $existingLinks = $this->linkManagement->getChildren($product->getSku(), $optionId);
@@ -255,7 +255,7 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
                     $linksToUpdate[] = $productLink;
                 }
             }
-            /** @var \Credevlab\ConfigurableBundle\Api\Data\LinkInterface[] $linksToDelete */
+            /** @var \Credevlab\Composite\Api\Data\LinkInterface[] $linksToDelete */
             $linksToDelete = $this->compareLinks($existingLinks, $linksToUpdate);
         }
         foreach ($linksToUpdate as $linkedProduct) {
@@ -291,8 +291,8 @@ class OptionRepository implements \Credevlab\ConfigurableBundle\Api\ProductOptio
     /**
      * Computes the difference between given arrays.
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterface[] $firstArray
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkInterface[] $secondArray
+     * @param \Credevlab\Composite\Api\Data\LinkInterface[] $firstArray
+     * @param \Credevlab\Composite\Api\Data\LinkInterface[] $secondArray
      *
      * @return array
      */

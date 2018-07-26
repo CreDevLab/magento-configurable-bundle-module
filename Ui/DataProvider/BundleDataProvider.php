@@ -3,11 +3,11 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Ui\DataProvider\Product;
+namespace Credevlab\Composite\Ui\DataProvider\Product;
 
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider;
-use Credevlab\ConfigurableBundle\Helper\Data;
+use Credevlab\Composite\Helper\Data;
 
 class BundleDataProvider extends ProductDataProvider
 {

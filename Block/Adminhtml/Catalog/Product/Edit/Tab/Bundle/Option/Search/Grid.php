@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option\Search;
+namespace Credevlab\Composite\Block\Adminhtml\Catalog\Product\Edit\Tab\Bundle\Option\Search;
 
 /**
  * Bundle selection product grid
@@ -15,7 +15,7 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
     /**
      * Bundle data
      *
-     * @var \Credevlab\ConfigurableBundle\Helper\Data
+     * @var \Credevlab\Composite\Helper\Data
      */
     protected $_bundleData = null;
 
@@ -28,14 +28,14 @@ class Grid extends \Magento\Backend\Block\Widget\Grid\Extended
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Backend\Helper\Data $backendHelper
      * @param \Magento\Catalog\Model\ProductFactory $productFactory
-     * @param \Credevlab\ConfigurableBundle\Helper\Data $bundleData
+     * @param \Credevlab\Composite\Helper\Data $bundleData
      * @param array $data
      */
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
         \Magento\Catalog\Model\ProductFactory $productFactory,
-        \Credevlab\ConfigurableBundle\Helper\Data $bundleData,
+        \Credevlab\Composite\Helper\Data $bundleData,
         array $data = []
     ) {
         $this->_bundleData = $bundleData;

@@ -3,9 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Pricing\Price;
+namespace Credevlab\Composite\Pricing\Price;
 
-use Credevlab\ConfigurableBundle\Pricing\Adjustment\BundleCalculatorInterface;
+use Credevlab\Composite\Pricing\Adjustment\BundleCalculatorInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Pricing\Price\AbstractPrice;
 
@@ -36,7 +36,7 @@ class BundleOptionPrice extends AbstractPrice implements BundleOptionPriceInterf
     protected $maximalPrice;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Pricing\Price\BundleOptions
+     * @var \Credevlab\Composite\Pricing\Price\BundleOptions
      */
     private $bundleOptions;
 
@@ -91,7 +91,7 @@ class BundleOptionPrice extends AbstractPrice implements BundleOptionPriceInterf
     /**
      * Get Options with attached Selections collection
      *
-     * @return \Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection
+     * @return \Credevlab\Composite\Model\ResourceModel\Option\Collection
      */
     public function getOptions()
     {
@@ -101,7 +101,7 @@ class BundleOptionPrice extends AbstractPrice implements BundleOptionPriceInterf
     /**
      * Get selection amount
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Selection $selection
+     * @param \Credevlab\Composite\Model\Selection $selection
      * @return \Magento\Framework\Pricing\Amount\AmountInterface
      */
     public function getOptionSelectionAmount($selection)

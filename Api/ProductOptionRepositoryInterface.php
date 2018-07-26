@@ -4,7 +4,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Api;
+namespace Credevlab\Composite\Api;
 
 /**
  * Interface ProductOptionRepositoryInterface
@@ -18,7 +18,7 @@ interface ProductOptionRepositoryInterface
      *
      * @param string $sku
      * @param int $optionId
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionInterface
+     * @return \Credevlab\Composite\Api\Data\OptionInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\InputException
      */
@@ -28,7 +28,7 @@ interface ProductOptionRepositoryInterface
      * Get all options for bundle product
      *
      * @param string $sku
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionInterface[]
+     * @return \Credevlab\Composite\Api\Data\OptionInterface[]
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      * @throws \Magento\Framework\Exception\InputException
      */
@@ -37,12 +37,12 @@ interface ProductOptionRepositoryInterface
     /**
      * Remove bundle option
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option
+     * @param \Credevlab\Composite\Api\Data\OptionInterface $option
      * @return bool
      * @throws \Magento\Framework\Exception\CouldNotSaveException
      * @throws \Magento\Framework\Exception\InputException
      */
-    public function delete(\Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option);
+    public function delete(\Credevlab\Composite\Api\Data\OptionInterface $option);
 
     /**
      * Remove bundle option
@@ -59,13 +59,13 @@ interface ProductOptionRepositoryInterface
      * Add new option for bundle product
      *
      * @param \Magento\Catalog\Api\Data\ProductInterface $product
-     * @param \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option
+     * @param \Credevlab\Composite\Api\Data\OptionInterface $option
      * @return int
      * @throws \Magento\Framework\Exception\CouldNotSaveException
      * @throws \Magento\Framework\Exception\InputException
      */
     public function save(
         \Magento\Catalog\Api\Data\ProductInterface $product,
-        \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option
+        \Credevlab\Composite\Api\Data\OptionInterface $option
     );
 }

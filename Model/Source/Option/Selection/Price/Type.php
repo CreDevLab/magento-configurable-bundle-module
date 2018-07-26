@@ -3,9 +3,9 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Model\Source\Option\Selection\Price;
+namespace Credevlab\Composite\Model\Source\Option\Selection\Price;
 
-use Credevlab\ConfigurableBundle\Api\Data\LinkInterface;
+use Credevlab\Composite\Api\Data\LinkInterface;
 
 /**
  * Extended Attributes Source Model

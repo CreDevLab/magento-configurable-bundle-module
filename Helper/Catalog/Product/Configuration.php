@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Helper\Catalog\Product;
+namespace Credevlab\Composite\Helper\Catalog\Product;
 
 use Magento\Catalog\Helper\Product\Configuration\ConfigurationInterface;
 use Magento\Catalog\Model\Product\Configuration\Item\ItemInterface;
@@ -94,7 +94,7 @@ class Configuration extends AbstractHelper implements ConfigurationInterface
         $selectionProduct->unsetData('final_price');
 
         $product = $item->getProduct();
-        /** @var \Credevlab\ConfigurableBundle\Model\Product\Price $price */
+        /** @var \Credevlab\Composite\Model\Product\Price $price */
         $price = $product->getPriceModel();
 
         return $price->getSelectionFinalTotalPrice(
@@ -121,7 +121,7 @@ class Configuration extends AbstractHelper implements ConfigurationInterface
         $options = [];
         $product = $item->getProduct();
 
-        /** @var \Credevlab\ConfigurableBundle\Model\Product\Type $typeInstance */
+        /** @var \Credevlab\Composite\Model\Product\Type $typeInstance */
         $typeInstance = $product->getTypeInstance();
 
         // get bundle options
@@ -131,7 +131,7 @@ class Configuration extends AbstractHelper implements ConfigurationInterface
             : [];
 
         if ($bundleOptionsIds) {
-            /** @var \Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection $optionsCollection */
+            /** @var \Credevlab\Composite\Model\ResourceModel\Option\Collection $optionsCollection */
             $optionsCollection = $typeInstance->getOptionsByIds($bundleOptionsIds, $product);
 
             // get and add bundle selections collection

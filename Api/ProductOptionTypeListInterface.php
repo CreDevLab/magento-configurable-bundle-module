@@ -4,7 +4,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Api;
+namespace Credevlab\Composite\Api;
 
 /**
  * Interface ProductOptionTypeListInterface
@@ -16,7 +16,7 @@ interface ProductOptionTypeListInterface
     /**
      * Get all types for options for bundle products
      *
-     * @return \Credevlab\ConfigurableBundle\Api\Data\OptionTypeInterface[]
+     * @return \Credevlab\Composite\Api\Data\OptionTypeInterface[]
      */
     public function getItems();
 }

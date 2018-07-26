@@ -4,12 +4,12 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Adjustment;
+namespace Credevlab\Composite\Pricing\Adjustment;
 
-use Credevlab\ConfigurableBundle\Model\Option;
-use Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionFactory;
+use Credevlab\Composite\Model\Option;
+use Credevlab\Composite\Pricing\Price\BundleSelectionFactory;
 use Magento\Catalog\Model\Product;
-use Credevlab\ConfigurableBundle\Model\Product\Price;
+use Credevlab\Composite\Model\Product\Price;
 
 /**
  * Provide lightweight implementation which uses price index
@@ -22,7 +22,7 @@ class DefaultSelectionPriceListProvider implements SelectionPriceListProviderInt
     private $selectionFactory;
 
     /**
-     * @var \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[]
+     * @var \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[]
      */
     private $priceList;
 
@@ -42,7 +42,7 @@ class DefaultSelectionPriceListProvider implements SelectionPriceListProviderInt
         $shouldFindMinOption = $this->isShouldFindMinOption($bundleProduct, $searchMin);
         $canSkipRequiredOptions = $searchMin && !$shouldFindMinOption;
 
-        /** @var \Credevlab\ConfigurableBundle\Model\Product\Type $typeInstance */
+        /** @var \Credevlab\Composite\Model\Product\Type $typeInstance */
         $typeInstance = $bundleProduct->getTypeInstance();
         $this->priceList = [];
 
@@ -104,7 +104,7 @@ class DefaultSelectionPriceListProvider implements SelectionPriceListProviderInt
      * Add minimum or maximum price for option
      *
      * @param Product $bundleProduct
-     * @param \Credevlab\ConfigurableBundle\Model\ResourceModel\Selection\Collection $selectionsCollection
+     * @param \Credevlab\Composite\Model\ResourceModel\Selection\Collection $selectionsCollection
      * @param bool $searchMin
      * @param bool $useRegularPrice
      * @return void
@@ -132,7 +132,7 @@ class DefaultSelectionPriceListProvider implements SelectionPriceListProviderInt
      * Add maximum price for multi selection option
      *
      * @param Product $bundleProduct
-     * @param \Credevlab\ConfigurableBundle\Model\ResourceModel\Selection\Collection $selectionsCollection
+     * @param \Credevlab\Composite\Model\ResourceModel\Selection\Collection $selectionsCollection
      * @param bool $useRegularPrice
      * @return void
      */
@@ -199,7 +199,7 @@ class DefaultSelectionPriceListProvider implements SelectionPriceListProviderInt
      * Get bundle options
      *
      * @param Product $saleableItem
-     * @return \Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection
+     * @return \Credevlab\Composite\Model\ResourceModel\Option\Collection
      */
     private function getBundleOptions(Product $saleableItem)
     {

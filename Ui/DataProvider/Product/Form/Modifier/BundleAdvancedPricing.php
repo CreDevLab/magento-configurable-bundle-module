@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier;
+namespace Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier;
 
 use Magento\Catalog\Api\Data\ProductAttributeInterface;
 use Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\AbstractModifier;

@@ -4,9 +4,9 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Render;
+namespace Credevlab\Composite\Pricing\Render;
 
-use Credevlab\ConfigurableBundle\Pricing\Price\FinalPrice;
+use Credevlab\Composite\Pricing\Price\FinalPrice;
 use Magento\Catalog\Pricing\Price\CustomOptionPrice;
 use Magento\Catalog\Pricing\Render as CatalogRender;
 

@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Block\Adminhtml\Order\Create;
+namespace Credevlab\Composite\Block\Adminhtml\Order\Create;
 
 class Sidebar
 {
@@ -22,7 +22,7 @@ class Sidebar
         \Closure $proceed,
         \Magento\Framework\DataObject $item
     ) {
-        if ($item->getProduct()->getTypeId() == \Credevlab\ConfigurableBundle\Model\Product\Type::TYPE_CODE) {
+        if ($item->getProduct()->getTypeId() == \Credevlab\Composite\Model\Product\Type::TYPE_CODE) {
             return '';
         }
         return $proceed($item);
@@ -43,7 +43,7 @@ class Sidebar
         \Closure $proceed,
         $productType
     ) {
-        if ($productType == \Credevlab\ConfigurableBundle\Model\Product\Type::TYPE_CODE) {
+        if ($productType == \Credevlab\Composite\Model\Product\Type::TYPE_CODE) {
             return true;
         }
         return $proceed($productType);

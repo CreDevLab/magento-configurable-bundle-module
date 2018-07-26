@@ -6,16 +6,16 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Credevlab\ConfigurableBundle\Api\ProductOptionTypeListInterface" type="Magento\Bundle\Model\OptionTypeList" />
-    <preference for="Credevlab\ConfigurableBundle\Api\Data\OptionTypeInterface" type="Magento\Bundle\Model\Source\Option\Type" />
-    <preference for="Credevlab\ConfigurableBundle\Api\ProductLinkManagementInterface" type="Credevlab\ConfigurableBundle\Model\LinkManagement" />
-    <preference for="Credevlab\ConfigurableBundle\Api\Data\LinkInterface" type="Credevlab\ConfigurableBundle\Model\Link" />
-    <preference for="Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface" type="Credevlab\ConfigurableBundle\Model\OptionRepository" />
-    <preference for="Credevlab\ConfigurableBundle\Api\ProductOptionManagementInterface" type="Credevlab\ConfigurableBundle\Model\OptionManagement" />
-    <preference for="Credevlab\ConfigurableBundle\Api\Data\OptionInterface" type="Credevlab\ConfigurableBundle\Model\Option" />
-    <preference for="Credevlab\ConfigurableBundle\Api\Data\BundleOptionInterface" type="Magento\Bundle\Model\BundleOption" />
-    <preference for="Credevlab\ConfigurableBundle\Pricing\Adjustment\SelectionPriceListProviderInterface" type="Credevlab\ConfigurableBundle\Pricing\Adjustment\DefaultSelectionPriceListProvider" />
-    <type name="Credevlab\ConfigurableBundle\Model\Source\Option\Type">
+    <preference for="Credevlab\Composite\Api\ProductOptionTypeListInterface" type="Magento\Bundle\Model\OptionTypeList" />
+    <preference for="Credevlab\Composite\Api\Data\OptionTypeInterface" type="Magento\Bundle\Model\Source\Option\Type" />
+    <preference for="Credevlab\Composite\Api\ProductLinkManagementInterface" type="Credevlab\Composite\Model\LinkManagement" />
+    <preference for="Credevlab\Composite\Api\Data\LinkInterface" type="Credevlab\Composite\Model\Link" />
+    <preference for="Credevlab\Composite\Api\ProductOptionRepositoryInterface" type="Credevlab\Composite\Model\OptionRepository" />
+    <preference for="Credevlab\Composite\Api\ProductOptionManagementInterface" type="Credevlab\Composite\Model\OptionManagement" />
+    <preference for="Credevlab\Composite\Api\Data\OptionInterface" type="Credevlab\Composite\Model\Option" />
+    <preference for="Credevlab\Composite\Api\Data\BundleOptionInterface" type="Magento\Bundle\Model\BundleOption" />
+    <preference for="Credevlab\Composite\Pricing\Adjustment\SelectionPriceListProviderInterface" type="Credevlab\Composite\Pricing\Adjustment\DefaultSelectionPriceListProvider" />
+    <type name="Credevlab\Composite\Model\Source\Option\Type">
         <arguments>
             <argument name="options" xsi:type="array">
                 <item name="select" xsi:type="string">Drop-down</item>
@@ -28,68 +28,68 @@
     <type name="Magento\Catalog\Model\Product\CatalogPrice">
         <arguments>
             <argument name="priceModelPool" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="string">Credevlab\ConfigurableBundle\Model\Product\CatalogPrice</item>
+                <item name="composite" xsi:type="string">Credevlab\Composite\Model\Product\CatalogPrice</item>
             </argument>
         </arguments>
     </type>
-    <virtualType name="Credevlab\ConfigurableBundle\Pricing\Adjustment\Collection" type="Magento\Framework\Pricing\Adjustment\Collection">
+    <virtualType name="Credevlab\Composite\Pricing\Adjustment\Collection" type="Magento\Framework\Pricing\Adjustment\Collection">
     </virtualType>
-    <preference for="Credevlab\ConfigurableBundle\Pricing\Adjustment\BundleCalculatorInterface" type="Credevlab\ConfigurableBundle\Pricing\Adjustment\Calculator" />
-    <virtualType name="Credevlab\ConfigurableBundle\Pricing\PriceInfo" type="Magento\Framework\Pricing\PriceInfo\Base">
+    <preference for="Credevlab\Composite\Pricing\Adjustment\BundleCalculatorInterface" type="Credevlab\Composite\Pricing\Adjustment\Calculator" />
+    <virtualType name="Credevlab\Composite\Pricing\PriceInfo" type="Magento\Framework\Pricing\PriceInfo\Base">
         <arguments>
-            <argument name="adjustmentCollection" xsi:type="object">Credevlab\ConfigurableBundle\Pricing\Adjustment\Collection</argument>
+            <argument name="adjustmentCollection" xsi:type="object">Credevlab\Composite\Pricing\Adjustment\Collection</argument>
         </arguments>
     </virtualType>
-    <virtualType name="Credevlab\ConfigurableBundle\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+    <virtualType name="Credevlab\Composite\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
         <arguments>
             <argument name="prices" xsi:type="array">
-                <item name="regular_price" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\BundleRegularPrice</item>
-                <item name="final_price" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\FinalPrice</item>
-                <item name="tier_price" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\TierPrice</item>
-                <item name="special_price" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\SpecialPrice</item>
+                <item name="regular_price" xsi:type="string">Credevlab\Composite\Pricing\Price\BundleRegularPrice</item>
+                <item name="final_price" xsi:type="string">Credevlab\Composite\Pricing\Price\FinalPrice</item>
+                <item name="tier_price" xsi:type="string">Credevlab\Composite\Pricing\Price\TierPrice</item>
+                <item name="special_price" xsi:type="string">Credevlab\Composite\Pricing\Price\SpecialPrice</item>
                 <item name="custom_option_price" xsi:type="string">Magento\Catalog\Pricing\Price\CustomOptionPrice</item>
                 <item name="base_price" xsi:type="string">Magento\Catalog\Pricing\Price\BasePrice</item>
-                <item name="configured_price" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\ConfiguredPrice</item>
-                <item name="configured_regular_price" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\ConfiguredRegularPrice</item>
-                <item name="bundle_option" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\BundleOptionPrice</item>
-                <item name="bundle_option_regular_price" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\BundleOptionRegularPrice</item>
+                <item name="configured_price" xsi:type="string">Credevlab\Composite\Pricing\Price\ConfiguredPrice</item>
+                <item name="configured_regular_price" xsi:type="string">Credevlab\Composite\Pricing\Price\ConfiguredRegularPrice</item>
+                <item name="bundle_option" xsi:type="string">Credevlab\Composite\Pricing\Price\BundleOptionPrice</item>
+                <item name="bundle_option_regular_price" xsi:type="string">Credevlab\Composite\Pricing\Price\BundleOptionRegularPrice</item>
                 <item name="catalog_rule_price" xsi:type="string">Magento\CatalogRule\Pricing\Price\CatalogRulePrice</item>
             </argument>
         </arguments>
     </virtualType>
-    <virtualType name="Credevlab\ConfigurableBundle\Pricing\Price\Collection" type="Magento\Framework\Pricing\Price\Collection">
+    <virtualType name="Credevlab\Composite\Pricing\Price\Collection" type="Magento\Framework\Pricing\Price\Collection">
         <arguments>
-            <argument name="pool" xsi:type="object">Credevlab\ConfigurableBundle\Pricing\Price\Pool</argument>
+            <argument name="pool" xsi:type="object">Credevlab\Composite\Pricing\Price\Pool</argument>
         </arguments>
     </virtualType>
     <type name="Magento\Framework\Pricing\PriceInfo\Factory">
         <arguments>
             <argument name="types" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="array">
-                    <item name="infoClass" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\PriceInfo</item>
-                    <item name="prices" xsi:type="string">Credevlab\ConfigurableBundle\Pricing\Price\Collection</item>
+                <item name="composite" xsi:type="array">
+                    <item name="infoClass" xsi:type="string">Credevlab\Composite\Pricing\PriceInfo</item>
+                    <item name="prices" xsi:type="string">Credevlab\Composite\Pricing\Price\Collection</item>
                 </item>
             </argument>
         </arguments>
     </type>
-    <type name="Credevlab\ConfigurableBundle\Pricing\Price\FinalPrice">
+    <type name="Credevlab\Composite\Pricing\Price\FinalPrice">
         <arguments>
-            <argument name="calculator" xsi:type="object">Credevlab\ConfigurableBundle\Pricing\Adjustment\BundleCalculatorInterface</argument>
+            <argument name="calculator" xsi:type="object">Credevlab\Composite\Pricing\Adjustment\BundleCalculatorInterface</argument>
         </arguments>
     </type>
     <type name="Magento\Catalog\Pricing\Price\ConfiguredPriceSelection">
         <arguments>
-            <argument name="calculator" xsi:type="object">Credevlab\ConfigurableBundle\Pricing\Adjustment\BundleCalculatorInterface</argument>
+            <argument name="calculator" xsi:type="object">Credevlab\Composite\Pricing\Adjustment\BundleCalculatorInterface</argument>
         </arguments>
     </type>
     <type name="Magento\Catalog\Model\Product\Attribute\Backend\Price">
-        <plugin name="configurable_bundle" type="Credevlab\ConfigurableBundle\Model\Plugin\PriceBackend" sortOrder="120" />
+        <plugin name="composite" type="Credevlab\Composite\Model\Plugin\PriceBackend" sortOrder="120" />
     </type>
     <type name="Magento\Catalog\Model\Product">
-        <plugin name="configurable_bundle" type="Credevlab\ConfigurableBundle\Model\Plugin\Product" sortOrder="120" />
+        <plugin name="composite" type="Credevlab\Composite\Model\Plugin\Product" sortOrder="120" />
     </type>
     <type name="Magento\Sales\Model\Order\Item">
-        <plugin name="configurable_bundle" type="Credevlab\ConfigurableBundle\Model\Sales\Order\Plugin\Item" sortOrder="120" />
+        <plugin name="composite" type="Credevlab\Composite\Model\Sales\Order\Plugin\Item" sortOrder="120" />
     </type>
     <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
         <arguments>
@@ -108,7 +108,7 @@
             </argument>
         </arguments>
     </type>
-    <type name="Credevlab\ConfigurableBundle\Model\Product\Type">
+    <type name="Credevlab\Composite\Model\Product\Type">
         <arguments>
             <argument name="stockRegistry" xsi:type="object">Magento\CatalogInventory\Api\StockRegistryInterface\Proxy</argument>
             <argument name="stockState" xsi:type="object">Magento\CatalogInventory\Api\StockStateInterface\Proxy</argument>
@@ -124,23 +124,23 @@
         </arguments>
     </type>
     <type name="Magento\Quote\Model\Quote\Item\ToOrderItem">
-        <plugin name="append_bundle_data_to_order" type="Credevlab\ConfigurableBundle\Model\Plugin\QuoteItem"/>
+        <plugin name="append_bundle_data_to_order" type="Credevlab\Composite\Model\Plugin\QuoteItem"/>
     </type>
     <type name="Magento\Quote\Model\Quote\Item\Repository">
         <arguments>
             <argument name="cartItemProcessors" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="object">\Magento\Bundle\Model\CartItemProcessor\Proxy</item>
+                <item name="composite" xsi:type="object">\Magento\Bundle\Model\CartItemProcessor\Proxy</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Sales\Api\OrderItemRepositoryInterface">
         <arguments>
             <argument name="processorPool" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="object">Credevlab\ConfigurableBundle\Model\ProductOptionProcessor</item>
+                <item name="composite" xsi:type="object">Credevlab\Composite\Model\ProductOptionProcessor</item>
             </argument>
         </arguments>
     </type>
-    <type name="Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Listing\Collector\BundlePrice">
+    <type name="Credevlab\Composite\Ui\DataProvider\Product\Listing\Collector\BundlePrice">
         <arguments>
             <argument name="excludeAdjustments" xsi:type="array">
                 <item name="weee" xsi:type="string">weee</item>
@@ -151,28 +151,28 @@
     <type name="Magento\Catalog\Ui\DataProvider\Product\ProductRenderCollectorComposite">
         <arguments>
             <argument name="productProviders" xsi:type="array">
-                <item name="configurable_bundle_price" xsi:type="object">\Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Listing\Collector\BundlePrice</item>
+                <item name="composite_price" xsi:type="object">\Credevlab\Composite\Ui\DataProvider\Product\Listing\Collector\BundlePrice</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Catalog\Model\Product\Price\SpecialPriceStorage">
         <arguments>
             <argument name="allowedProductTypes" xsi:type="array">
-                <item name="6" xsi:type="string">configurable_bundle</item>
+                <item name="6" xsi:type="string">composite</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\BatchSizeCalculator">
         <arguments>
             <argument name="estimators" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="object">Magento\Catalog\Model\Indexer\Price\CompositeProductBatchSizeManagement</item>
+                <item name="composite" xsi:type="object">Magento\Catalog\Model\Indexer\Price\CompositeProductBatchSizeManagement</item>
             </argument>
             <argument name="batchSizeAdjusters" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\CompositeProductBatchSizeAdjuster</item>
+                <item name="composite" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product\Indexer\Price\CompositeProductBatchSizeAdjuster</item>
             </argument>
         </arguments>
     </type>
-    <type name="Credevlab\ConfigurableBundle\Model\ResourceModel\Indexer\Price">
+    <type name="Credevlab\Composite\Model\ResourceModel\Indexer\Price">
         <arguments>
             <argument name="tableStrategy" xsi:type="object">Magento\Catalog\Model\ResourceModel\Product\Indexer\TemporaryTableStrategy</argument>
             <argument name="connectionName" xsi:type="string">indexer</argument>
@@ -181,18 +181,18 @@
     <type name="Magento\CatalogInventory\Model\Indexer\Stock\Action\Full">
         <arguments>
             <argument name="batchRowsCount" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="number">138</item>
+                <item name="composite" xsi:type="number">138</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Framework\EntityManager\MetadataPool">
         <arguments>
             <argument name="metadata" xsi:type="array">
-                <item name="Credevlab\ConfigurableBundle\Api\Data\OptionInterface" xsi:type="array">
+                <item name="Credevlab\Composite\Api\Data\OptionInterface" xsi:type="array">
                     <item name="entityTableName" xsi:type="string">catalog_product_bundle_option</item>
                     <item name="identifierField" xsi:type="string">option_id</item>
                 </item>
-                <item name="Credevlab\ConfigurableBundle\Model\Selection" xsi:type="array">
+                <item name="Credevlab\Composite\Model\Selection" xsi:type="array">
                     <item name="entityTableName" xsi:type="string">catalog_product_bundle_selection</item>
                     <item name="identifierField" xsi:type="string">selection_id</item>
                 </item>
@@ -202,15 +202,15 @@
     <type name="Magento\Framework\EntityManager\HydratorPool">
         <arguments>
             <argument name="hydrators" xsi:type="array">
-                <item name="Credevlab\ConfigurableBundle\Api\Data\OptionInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
-                <item name="Credevlab\ConfigurableBundle\Model\Selection" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Credevlab\Composite\Api\Data\OptionInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Credevlab\Composite\Model\Selection" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\SalesRule\Model\Quote\ChildrenValidationLocator">
         <arguments>
             <argument name="productTypeChildrenValidationMap" xsi:type="array">
-                <item name="configurable_bundle" xsi:type="boolean">false</item>
+                <item name="composite" xsi:type="boolean">false</item>
             </argument>
         </arguments>
     </type>

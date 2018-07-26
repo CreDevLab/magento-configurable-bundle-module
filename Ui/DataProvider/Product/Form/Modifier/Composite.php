@@ -3,18 +3,18 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Ui\DataProvider\Product\Form\Modifier;
+namespace Credevlab\Composite\Ui\DataProvider\Product\Form\Modifier;
 
 use Magento\Catalog\Model\Locator\LocatorInterface;
 use Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\AbstractModifier;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Ui\DataProvider\Modifier\ModifierInterface;
-use Credevlab\ConfigurableBundle\Model\Product\Type;
-use Credevlab\ConfigurableBundle\Api\ProductOptionRepositoryInterface;
+use Credevlab\Composite\Model\Product\Type;
+use Credevlab\Composite\Api\ProductOptionRepositoryInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 
 /**
- * Class Bundle customizes Bundle product creation flow
+ * Class Composite customizes composite product creation flow
  */
 class Composite extends AbstractModifier
 {
@@ -98,11 +98,11 @@ class Composite extends AbstractModifier
         $modelId = $product->getId();
         $isBundleProduct = $product->getTypeId() === Type::TYPE_CODE;
         if ($isBundleProduct && $modelId) {
-            $data[$modelId][BundlePanel::CODE_BUNDLE_OPTIONS][BundlePanel::CODE_BUNDLE_OPTIONS] = [];
-            /** @var \Credevlab\ConfigurableBundle\Api\Data\OptionInterface $option */
+            $data[$modelId][CompositePanel::CODE_COMPOSITE_OPTIONS][CompositePanel::CODE_COMPOSITE_OPTIONS] = [];
+            /** @var \Credevlab\Composite\Api\Data\OptionInterface $option */
             foreach ($this->optionsRepository->getList($product->getSku()) as $option) {
                 $selections = [];
-                /** @var \Credevlab\ConfigurableBundle\Api\Data\LinkInterface $productLink */
+                /** @var \Credevlab\Composite\Api\Data\LinkInterface $productLink */
                 foreach ($option->getProductLinks() as $productLink) {
                     $linkedProduct = $this->productRepository->get($productLink->getSku());
                     $integerQty = 1;
@@ -127,7 +127,7 @@ class Composite extends AbstractModifier
                         'delete' => '',
                     ];
                 }
-                $data[$modelId][BundlePanel::CODE_BUNDLE_OPTIONS][BundlePanel::CODE_BUNDLE_OPTIONS][] = [
+                $data[$modelId][CompositePanel::CODE_COMPOSITE_OPTIONS][CompositePanel::CODE_COMPOSITE_OPTIONS][] = [
                     'position' => $option->getPosition(),
                     'option_id' => $option->getOptionId(),
                     'title' => $option->getTitle(),

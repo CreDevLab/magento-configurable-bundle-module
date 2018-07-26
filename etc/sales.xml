@@ -7,6 +7,6 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/sales.xsd">
     <order>
-        <available_product_type name="configurable_bundle"/>
+        <available_product_type name="composite"/>
     </order>
 </config>

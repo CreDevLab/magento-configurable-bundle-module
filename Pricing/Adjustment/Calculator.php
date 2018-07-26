@@ -4,10 +4,10 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Pricing\Adjustment;
+namespace Credevlab\Composite\Pricing\Adjustment;
 
-use Credevlab\ConfigurableBundle\Model\Product\Price;
-use Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionFactory;
+use Credevlab\Composite\Model\Product\Price;
+use Credevlab\Composite\Pricing\Price\BundleSelectionFactory;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\Pricing\Adjustment\Calculator as CalculatorBase;
 use Magento\Framework\Pricing\Amount\AmountFactory;
@@ -214,7 +214,7 @@ class Calculator implements BundleCalculatorInterface
     /**
      * Check this option if it should be skipped
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Option $option
+     * @param \Credevlab\Composite\Model\Option $option
      * @param bool $canSkipRequiredOption
      * @return bool
      * @deprecated 100.2.0
@@ -246,14 +246,14 @@ class Calculator implements BundleCalculatorInterface
      * Get bundle options
      *
      * @param Product $saleableItem
-     * @return \Credevlab\ConfigurableBundle\Model\ResourceModel\Option\Collection
+     * @return \Credevlab\Composite\Model\ResourceModel\Option\Collection
      * @deprecated 100.2.0
      */
     protected function getBundleOptions(Product $saleableItem)
     {
-        /** @var \Credevlab\ConfigurableBundle\Pricing\Price\BundleOptionPrice $bundlePrice */
+        /** @var \Credevlab\Composite\Pricing\Price\BundleOptionPrice $bundlePrice */
         $bundlePrice = $saleableItem->getPriceInfo()->getPrice(
-            \Credevlab\ConfigurableBundle\Pricing\Price\BundleOptionPrice::PRICE_CODE
+            \Credevlab\Composite\Pricing\Price\BundleOptionPrice::PRICE_CODE
         );
         return $bundlePrice->getOptions();
     }
@@ -263,7 +263,7 @@ class Calculator implements BundleCalculatorInterface
      *
      * @param float $basePriceValue
      * @param Product $bundleProduct
-     * @param \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
+     * @param \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
      * @param null|bool|string|array $exclude
      * @return \Magento\Framework\Pricing\Amount\AmountInterface
      */
@@ -280,14 +280,14 @@ class Calculator implements BundleCalculatorInterface
      *
      * @param float $basePriceValue
      * @param Product $bundleProduct
-     * @param \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
+     * @param \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
      * @param null|bool|string|arrayy $exclude
      * @return \Magento\Framework\Pricing\Amount\AmountInterface
      */
     protected function calculateFixedBundleAmount($basePriceValue, $bundleProduct, $selectionPriceList, $exclude)
     {
         $fullAmount = $basePriceValue;
-        /** @var $option \Credevlab\ConfigurableBundle\Model\Option */
+        /** @var $option \Credevlab\Composite\Model\Option */
         foreach ($selectionPriceList as $selectionPrice) {
             $fullAmount += ($selectionPrice->getValue() * $selectionPrice->getQuantity());
         }
@@ -299,7 +299,7 @@ class Calculator implements BundleCalculatorInterface
      *
      * @param float $basePriceValue
      * @param Product $bundleProduct
-     * @param \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
+     * @param \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
      * @param null|bool|string|array $exclude
      * @return \Magento\Framework\Pricing\Amount\AmountInterface
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
@@ -364,10 +364,10 @@ class Calculator implements BundleCalculatorInterface
     /**
      * Create selection price list for the retrieved options
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Option $option
+     * @param \Credevlab\Composite\Model\Option $option
      * @param Product $bundleProduct
      * @param bool $useRegularPrice
-     * @return \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[]
+     * @return \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[]
      */
     public function createSelectionPriceList($option, $bundleProduct, $useRegularPrice = false)
     {
@@ -376,7 +376,7 @@ class Calculator implements BundleCalculatorInterface
         if ($selections === null) {
             return $priceList;
         }
-        /* @var $selection \Credevlab\ConfigurableBundle\Model\Selection|\Magento\Catalog\Model\Product */
+        /* @var $selection \Credevlab\Composite\Model\Selection|\Magento\Catalog\Model\Product */
         foreach ($selections as $selection) {
             if (!$selection->isSalable()) {
                 // @todo CatalogInventory Show out of stock Products
@@ -397,10 +397,10 @@ class Calculator implements BundleCalculatorInterface
     /**
      * Find minimal or maximal price for existing options
      *
-     * @param \Credevlab\ConfigurableBundle\Model\Option $option
-     * @param \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
+     * @param \Credevlab\Composite\Model\Option $option
+     * @param \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[] $selectionPriceList
      * @param bool $searchMin
-     * @return \Credevlab\ConfigurableBundle\Pricing\Price\BundleSelectionPrice[]
+     * @return \Credevlab\Composite\Pricing\Price\BundleSelectionPrice[]
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
     public function processOptions($option, $selectionPriceList, $searchMin = true)

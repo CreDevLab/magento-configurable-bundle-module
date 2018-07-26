@@ -5,7 +5,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace Credevlab\ConfigurableBundle\Api\Data;
+namespace Credevlab\Composite\Api\Data;
 
 /**
  * Interface LinkInterface
@@ -156,15 +156,15 @@ interface LinkInterface extends \Magento\Framework\Api\ExtensibleDataInterface
     /**
      * Retrieve existing extension attributes object or create a new one.
      *
-     * @return \Credevlab\ConfigurableBundle\Api\Data\LinkExtensionInterface|null
+     * @return \Credevlab\Composite\Api\Data\LinkExtensionInterface|null
      */
     public function getExtensionAttributes();
 
     /**
      * Set an extension attributes object.
      *
-     * @param \Credevlab\ConfigurableBundle\Api\Data\LinkExtensionInterface $extensionAttributes
+     * @param \Credevlab\Composite\Api\Data\LinkExtensionInterface $extensionAttributes
      * @return $this
      */
-    public function setExtensionAttributes(\Credevlab\ConfigurableBundle\Api\Data\LinkExtensionInterface $extensionAttributes);
+    public function setExtensionAttributes(\Credevlab\Composite\Api\Data\LinkExtensionInterface $extensionAttributes);
 }

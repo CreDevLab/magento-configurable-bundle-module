@@ -3,10 +3,10 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Credevlab\ConfigurableBundle\Controller\Adminhtml\Product\Initialization\Helper\Plugin;
+namespace Credevlab\Composite\Controller\Adminhtml\Product\Initialization\Helper\Plugin;
 
-use Credevlab\ConfigurableBundle\Api\Data\OptionInterfaceFactory as OptionFactory;
-use Credevlab\ConfigurableBundle\Api\Data\LinkInterfaceFactory as LinkFactory;
+use Credevlab\Composite\Api\Data\OptionInterfaceFactory as OptionFactory;
+use Credevlab\Composite\Api\Data\LinkInterfaceFactory as LinkFactory;
 use Magento\Catalog\Api\Data\ProductCustomOptionInterfaceFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface as ProductRepository;
 use Magento\Store\Model\StoreManagerInterface as StoreManager;
@@ -165,7 +165,7 @@ class Bundle
      */
     protected function processDynamicOptionsData(\Magento\Catalog\Model\Product $product)
     {
-        if ((int)$product->getPriceType() !== \Credevlab\ConfigurableBundle\Model\Product\Price::PRICE_TYPE_DYNAMIC) {
+        if ((int)$product->getPriceType() !== \Credevlab\Composite\Model\Product\Price::PRICE_TYPE_DYNAMIC) {
             return;
         }
 
@@ -204,7 +204,7 @@ class Bundle
     ) {
         $link = $this->linkFactory->create(['data' => $linkData]);
 
-        if ((int)$product->getPriceType() !== \Credevlab\ConfigurableBundle\Model\Product\Price::PRICE_TYPE_DYNAMIC) {
+        if ((int)$product->getPriceType() !== \Credevlab\Composite\Model\Product\Price::PRICE_TYPE_DYNAMIC) {
             if (array_key_exists('selection_price_value', $linkData)) {
                 $link->setPrice($linkData['selection_price_value']);
             }
